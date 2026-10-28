@@ -218,7 +218,11 @@ class PtApi(HPreferencesMixin):
     def run_scan(self, out_dir: str, name: str = "pt-profile.json") -> dict:
         if not os.path.isdir(out_dir):
             return {"ok": False, "message": "输出目录不存在：%s" % out_dir}
-        r = self._spawn([sys.executable, SCAN_SCRIPT, "--out", out_dir, "--name", name])
+        ok, message = self.resolver.status()
+        if not ok:
+            return {"ok": False, "message": message}
+        r = self._spawn([self.resolver.venv_python, self.resolver.script("pt-scanner"),
+                         "--out", out_dir, "--name", name])
         if r.get("ok"):
             self._task_kind = "scan"
         return r

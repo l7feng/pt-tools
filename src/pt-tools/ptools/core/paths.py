@@ -30,6 +30,10 @@ class PathResolver:
 
     @property
     def venv_python(self):
+        if getattr(sys, "frozen", False):
+            portable = os.path.join(os.path.dirname(sys.executable), "runtime", "python.exe")
+            if os.path.isfile(portable):
+                return portable
         return os.path.join(self.skills_root, "pt-exporter", "env", "venv",
                             "Scripts", "python.exe")
 

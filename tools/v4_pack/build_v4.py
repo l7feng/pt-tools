@@ -133,6 +133,7 @@ def build_one(key: str, out_root: Path, py: str, date: str) -> int:
         cmd += ["--paths", str(REPO / "src" / "jianying-draft-toolkit" / "code")]
     if key == "re":
         cmd += ["--paths", str(REPO / "src" / "rename-unify" / "code")]
+    cmd += ["--collect-all", "webview", "--collect-all", "pythonnet"]
     cmd += ["--exclude-module", "tkinter", "--exclude-module", "PyQt5",
             "--exclude-module", "IPython", "--exclude-module", "pytest"]
     cmd.append(str(entry_file))
@@ -168,6 +169,14 @@ def build_one(key: str, out_root: Path, py: str, date: str) -> int:
         print("[v4-pack] OK %s -> %s" % (key, zh_exe))
     else:
         print("[v4-pack] WARN %s: exe not found at %s" % (key, exe))
+    # Include the scripts used by PathResolver in the HTML distribution too.
+    from build import post_pt_tools_skills
+    if not post_pt_tools_skills(final, None):
+        raise RuntimeError("PT skill scripts were not packaged")
+    from portable_runtime import copy_runtime
+    copy_runtime(final / "runtime")
+    from finish_distribution import finish_distribution
+    finish_distribution(final, REPO, key)
     return 0
 
 
