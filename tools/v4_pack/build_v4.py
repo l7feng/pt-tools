@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """v4 HTML 壳打包（阶段 E）：onedir + web/api/shell 资源内嵌
 
-产物：<out-root>/<01至03-中文工具名>/<英文名-H>-v<仓库VERSION>/<中文名-H版>.exe
+产物：<out-root>/<编号-英文（中文）>/<英文名>-v<仓库VERSION>/<英文显示名>.exe
 用法：python tools/v4_pack/build_v4.py [pt|jy|re|all] [--out-root DIR] [--py PY]
 """
 from __future__ import annotations
@@ -32,16 +32,16 @@ TOOLS = {
     "pt": {
         "entry": "shell.desktop_app",
         "name": "pt-tools-v4",
-        "zh": "Pro Tools工具箱-H版",
-        "folder": "01-ProTools工具箱/pt-tools-H",
+        "zh": "PT Tools",
+        "folder": "01-PT Tools（Pro Tools 工具箱）/pt-tools",
         "hidden": ["api.pt_api", "shell.httpd", "ptools.core.settings", "ptools.core.config",
                    "ptools.core.i18n", "ptools.core.naming", "ptools.core.scanner"],
     },
     "jy": {
         "entry": "shell.jy_desktop",
         "name": "jianying-draft-toolkit-v4",
-        "zh": "剪映工程工具包-H版",
-        "folder": "02-剪映工程工具包/jianying-draft-toolkit-H",
+        "zh": "JY Tools",
+        "folder": "02-JY Tools（剪映工程工具）/jy-tools",
         # ptools.core.config 为模块级依赖（界面偏好复用 pt C2 层），
         # 2026-09-30 真启动冒烟实锤：缺 --paths src/pt-tools 会运行时 ModuleNotFoundError
         "hidden": ["api.jy_api", "shell.httpd", "ptools.core.config"],
@@ -49,8 +49,8 @@ TOOLS = {
     "re": {
         "entry": "shell.re_desktop",
         "name": "rename-unify-v4",
-        "zh": "统一命名工具",
-        "folder": "03-统一命名工具/rename-unify",
+        "zh": "Rename Project",
+        "folder": "03-Rename Project（统一命名归位）/rename-project",
         "hidden": ["api.re_api", "shell.httpd", "ptools.core.config"],
     },
 }
