@@ -157,7 +157,7 @@ def build_one(key: str, out_root: Path, py: str, date: str) -> int:
     final = tool_out_dir(key, out_root)
     final.parent.mkdir(parents=True, exist_ok=True)
     if final.exists():
-        archive = final.parent.parent / "00-归档"
+        archive = final.parent.parent / "00-Archive（归档）"
         archive.mkdir(parents=True, exist_ok=True)
         previous = archive / (final.name + "-重建前-" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S-%f"))
         final.rename(previous)

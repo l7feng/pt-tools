@@ -69,7 +69,7 @@
   document.documentElement.lang=language;document.documentElement.dataset.language=language;
   const tool=location.pathname.endsWith('re.html')?'re':location.pathname.endsWith('jy.html')?'jy':'pt';
   const names={pt:['Pro Tools 工具箱','Pro Tools Toolkit'],jy:['剪映工程工具包','Jianying Draft Toolkit'],re:['统一命名工具','Rename Unify']};
-  document.title=names[tool][language==='en'?1:0]+' H v4.2.1';
+  document.title=names[tool][language==='en'?1:0];
  }
  const pending=new Set();
  function updateSubtree(root){

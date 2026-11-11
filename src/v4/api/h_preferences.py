@@ -83,7 +83,7 @@ class HPreferencesMixin:
         from shell.app_version import tool_version
         names={'pt':('Pro Tools 工具箱','Pro Tools Toolkit'),'jy':('剪映工程工具包','Jianying Draft Toolkit'),'re':('统一命名工具','Rename Unify')}
         if webview.windows:
-            webview.windows[0].set_title(names[self._h_tool][language=='en']+(' v' if self._h_tool=='re' else ' H v')+tool_version(self._h_tool))
+            webview.windows[0].set_title(names[self._h_tool][language=='en']+' v'+tool_version(self._h_tool))
         return {'ok':True}
 
     def get_ui_prefs(self):
