@@ -45,7 +45,7 @@ def run_pywebview(port: int) -> None:
         "Pro Tools 工具箱 v" + tool_version("pt"), url, js_api=api,
         **window_options(api._h_preferences))
     remember_window(win, api._h_preferences)
-    webview.start(icon=os.path.join(WEB_DIR,'assets','logos','p.ico'))
+    webview.start(icon=os.path.join(WEB_DIR,'assets','icons','pt','app.ico'))
 
 
 def run_edge(port: int) -> None:

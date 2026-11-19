@@ -123,8 +123,7 @@ def build_one(key: str, out_root: Path, py: str, date: str) -> int:
         "--add-data", str(V4 / "api") + os.pathsep + "api",
         "--add-data", str(V4 / "shell") + os.pathsep + "shell",
     ]
-    letter = {'pt':'p','jy':'j','re':'r'}[key]
-    cmd += ['--icon', str(WEB / 'assets' / 'logos' / (letter + '.ico'))]
+    cmd += ['--icon', str(WEB / 'assets' / 'icons' / key / 'app.ico')]
     for h in cfg["hidden"]:
         cmd += ["--hidden-import", h]
     # 工具核心源码（同进程直调，非 pip 包）；ptools 家族级依赖三个工具都带上

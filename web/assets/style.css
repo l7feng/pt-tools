@@ -134,6 +134,7 @@ footer .spacer { flex:1; }
 footer .badge { background:var(--accent); color:#fff; border-radius:calc(var(--btn-radius) + 2px);
   padding:2px 8px; font-size:10.5px; }
 footer .badge.bad { background:var(--red); }
+footer .status-version { color:var(--dim); font-size:11.5px; font-variant-numeric:tabular-nums; white-space:nowrap; }
 
 .demo-tip { position:fixed; right:14px; bottom:42px; z-index:9; font-size:11px; color:var(--faint);
   background:var(--surface); border:1px dashed var(--border); border-radius:8px; padding:6px 10px; }
@@ -253,7 +254,7 @@ body.solid-bars header.hero,body.solid-bars footer.status{background:var(--surfa
 @supports not(backdrop-filter:blur(1px)){header.hero,nav.tabs,footer.status{background:var(--surface)}}
 
 /* Letter-mark family P/J/R; English labels wrap at narrow widths. */
-.hero .brand-mark{width:38px;height:38px;object-fit:contain;background:transparent;border-radius:11px}
+.hero .brand-mark{height:36px;width:auto;object-fit:contain;background:transparent;border-radius:0;display:block}
 html[lang="en"] .field label{width:126px;overflow-wrap:anywhere}
 html[lang="en"] .more-menu{width:340px}
 html[lang="en"] .gt-panel{width:min(400px,calc(100vw - 16px))}

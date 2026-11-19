@@ -46,7 +46,7 @@ def run_pywebview(port: int) -> None:
     remember_window(win, api._h_preferences)
     from shell.re_folder_drop import bind_project_drop
     win.events.loaded += lambda: bind_project_drop(win)
-    webview.start(icon=os.path.join(WEB_DIR,'assets','logos','r.ico'))
+    webview.start(icon=os.path.join(WEB_DIR,'assets','icons','re','app.ico'))
 
 
 def run_edge(port: int) -> None:
